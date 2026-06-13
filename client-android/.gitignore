@@ -1,0 +1,22 @@
+# Gradle and Android build output
+.gradle/
+.gradle-tmp/
+build/
+**/build/
+
+# Local SDK and IDE state
+local.properties
+.idea/
+*.iml
+
+# Android generated artifacts
+captures/
+*.apk
+*.ap_
+*.aab
+*.aar
+*.dex
+
+# JVM and OS noise
+*.class
+.DS_Store

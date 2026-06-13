@@ -1,0 +1,12 @@
+[server]
+private_key = "0000000000000000000000000000000000000000000000000000000000000001"
+listen = "0.0.0.0:51820"
+interface = "svcwg0"
+tunnel = "10.44.0.1/24"
+mtu = 1420
+
+[[peers]]
+name = "alice"
+public_key = "0000000000000000000000000000000000000000000000000000000000000002"
+allowed_ips = ["10.44.0.2/32"]
+persistent_keepalive_seconds = 25

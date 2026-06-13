@@ -1,0 +1,16 @@
+[Unit]
+Description=svc-vpn userspace VPN server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/svc-vpn --config /etc/svc-vpn/config.toml
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW
+NoNewPrivileges=true
+Restart=on-failure
+RestartSec=2s
+
+[Install]
+WantedBy=multi-user.target
