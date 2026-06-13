@@ -167,6 +167,20 @@ GRADLE_USER_HOME=.gradle-tmp ./gradlew testDebugUnitTest assembleDebug
 
 The debug APK is written under `client-android/app/build/outputs/apk/debug/`.
 
+## TODO
+
+- Complete the `svc-vpn` WireGuard protocol engine: handshake, transport encryption, replay protection, key rotation, and interoperability with standard WireGuard clients.
+- Add end-to-end VPN integration tests that exercise `svc-vpn` with at least one desktop or Android client profile.
+- Define the production configuration story for `svc-vpn`, including interface address assignment, IP forwarding, firewall/NAT rules, service user, and systemd deployment defaults.
+- Harden `svc-vpn` operations before exposure: logging, metrics, graceful shutdown behavior, config validation, secret handling, and external security review.
+- Finish the Windows tunnel implementation in `client-windows/src-tauri/src/tunnel.rs`, including Wintun adapter creation, route installation, DNS configuration, disconnect cleanup, and administrator elevation.
+- Validate the Linux client against a working server, including `wg-quick` config rendering, privilege helper behavior, reconnect cleanup, and WSL 2 `/dev/net/tun` handling.
+- Validate the Android client against a working server, including VPN consent flow, profile persistence, tunnel lifecycle, DNS, MTU, and reconnect behavior.
+- Decide whether the desktop clients should continue as separate `client-linux` and `client-windows` projects or be consolidated into a shared Tauri workspace with platform-specific tunnel modules.
+- Add CI for Rust tests, TypeScript builds, Android JVM tests, and packaging smoke checks.
+- Document release packaging for each target: Linux `deb`/`rpm`/AppImage, Windows `msi`/NSIS, Android debug/release APKs, and the `svc-vpn` systemd unit.
+- Add developer sample profiles and a local test topology so new contributors can run the service and clients without inventing config from scratch.
+
 ## Notes
 
 - The VPN service is not production-ready until the WireGuard protocol engine is completed, interoperable with standard clients, and externally reviewed.
